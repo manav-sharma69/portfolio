@@ -1,0 +1,301 @@
+/* ─── Color tokens ─────────────────────────────────────────── */
+
+:root {
+  --bg: hsl(34, 26%, 95%);
+  --fg: hsl(45, 8%, 9%);
+  --muted: hsl(30, 4%, 52%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: hsl(30, 5%, 7%);
+    --fg: hsl(33, 16%, 89%);
+    --muted: hsl(30, 4%, 60%);
+  }
+}
+
+/* ─── Reset & base ─────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.7;
+  min-height: 100dvh;
+}
+
+/* ─── Layout ───────────────────────────────────────────────── */
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+/* ─── Header ───────────────────────────────────────────────── */
+
+header {
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.2rem;
+}
+
+.location {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+.contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0;
+  font-size: 0.8125rem;
+}
+
+.contact-bar a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 50%, transparent);
+  padding-bottom: 0.5px;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.contact-bar a:hover {
+  color: var(--muted);
+  border-color: transparent;
+}
+
+.sep {
+  color: var(--muted);
+  padding: 0 0.5rem;
+  user-select: none;
+}
+
+/* ─── Sections ─────────────────────────────────────────────── */
+
+section {
+  margin-bottom: 2.75rem;
+}
+
+h2 {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+}
+
+/* ─── Entry (experience / projects) ───────────────────────── */
+
+article.entry {
+  margin-bottom: 1.75rem;
+}
+
+article.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.entry-title {
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.entry-date {
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.entry-sub {
+  font-size: 0.8125rem;
+  margin-bottom: 0.5rem;
+}
+
+article ul {
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+article ul li {
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+article p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ─── Inline links ─────────────────────────────────────────── */
+
+.inline-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
+  padding-bottom: 0.5px;
+  margin-left: 0.3rem;
+  transition: color 0.15s ease;
+}
+
+.inline-link:hover {
+  color: var(--fg);
+}
+
+.inline-link.small {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+/* ─── Open source list ─────────────────────────────────────── */
+
+.oss-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.oss-list li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.oss-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+/* ─── Skills grid ──────────────────────────────────────────── */
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-tag {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--muted) 35%, transparent);
+  border-radius: 3px;
+  color: var(--fg);
+  background: color-mix(in srgb, var(--muted) 8%, transparent);
+  letter-spacing: 0.01em;
+}
+
+/* ─── Education ────────────────────────────────────────────── */
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* ─── Certificates ─────────────────────────────────────────── */
+
+.cert-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cert-link {
+  font-size: 0.9rem;
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
+  padding-bottom: 0.5px;
+  transition: color 0.15s ease;
+}
+
+.cert-link:hover {
+  color: var(--muted);
+  border-color: transparent;
+}
+
+/* ─── Utility ──────────────────────────────────────────────── */
+
+.muted {
+  color: var(--muted);
+}
+
+/* ─── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .entry-meta {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .edu-row {
+    flex-direction: column;
+  }
+
+  .contact-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sep {
+    display: none;
+  }
+}
